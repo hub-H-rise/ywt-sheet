@@ -1,4 +1,4 @@
-# YWT目標達成アプリ）
+# YWT目標達成アプリ
 
 ## 概要
 「達成したい目標」と、それに対する日々の活動記録である「YWT（やったこと・わかったこと・次やること）」を紐づけて管理できるWebアプリケーションです。
@@ -13,14 +13,14 @@
 - **データ連動機能**
   - 選択中の目標に紐づくYWTだけを絞り込んで表示
 
-## 🛠️ 使用技術（Tech Stack）
+## 使用技術
 - **バックエンド**: Python, Flask
-- **データベース**: PostgreSQL, Flask-SQLAlchemy, Flask-Migrate
+- **データベース**: PostgreSQL, Flask-SQLAlchemy, Flask-Migrate, psycopg
 - **フロントエンド**: HTML, CSS, Jinja2テンプレート
 - **環境管理**: Poetry
-- **バージョン管理**: Git, GitHub
+- **バージョン管理**: pyenv
 
-## 🗄️ データベース設計（テーブル構造）
+## データベース設計（テーブル構造）
 ### Goal（目標テーブル）
 - `id` (PK)
 - `title` (目標内容)
