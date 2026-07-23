@@ -1,0 +1,46 @@
+    {% extends "base.html" %}
+    {% block title %}活動記録一覧{% endblock %}
+    {% block content %}
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="goal-header mt-4">
+                    <div class="card mb-4 shadow-sm bg-light">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">現在の目標</h3>
+                            {% if current_goal %}
+                                <h3>{{ current_goal.title }}</h3>
+                                <a href="/goals" class="btn btn-outline-primary mb-3 d-inline-flex">目標を切り替える・新規作成</a>
+                            {% else %}
+                                <h2>目標が設定されていません</h2>
+                                <a href="/goals" class="btn btn-outline-primary mb-3 d-inline-flex">目標を設定する</a>
+                            {% endif %}
+                            <a href="/create" class="btn btn-outline-success mb-3 d-inline-flex">やったことを記録する</a>
+
+                            <h2 class="mb-3">活動記録一覧</h2>
+                                
+                            {% for post in posts %}
+                            <div class="card mb-3 shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle text-muted mb-2">
+                                        日付: {{ post.created_at.strftime('%Y-%m-%d') }}
+                                    </h6>
+                                    <p class="mb-1"><strong>やったこと（Y）：</strong>{{ post.done }}</p>
+                                    <p class="mb-1"><strong>わかったこと（W）：</strong>{{ post.learned }}</p>
+                                    <p class="mb-3"><strong>次やること（T）：</strong>{{ post.next_action }}</p>
+                                    <div class="d-flex gap-2">
+                                        <a href="/{{ post.id }}/update" class="btn btn-outline-primary btn-sm">編集</a>
+                                        <a href="/{{ post.id }}/delete_post" class="btn btn-outline-danger btn-sm" onclick="return confirm('本当に削除しますか？');">削除</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% else %}
+                                <p class="text-muted">まだ記録がありません。</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

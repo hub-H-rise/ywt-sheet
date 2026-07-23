@@ -1,0 +1,49 @@
+    {% extends "base.html" %}
+    {% block title %}目標管理{% endblock %}
+    {% block content %}
+    <div class="goal-header mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary mb-3">目標設定</h3>
+                        <form action="/goals" method="POST" class="row g-3">
+                            <div class="col-sm-9">
+                                <input type="text" name="title" class="form-control" placeholder="新しい目標を入力" required>
+                            </div>
+                            <div class="col-sm-3">
+                                <button type="submit" class="btn btn-outline-primary mb-2 d-inline-flex">追加して開始</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="card shadow-sm mb-4">
+                     <div class="card-body">
+                        <h5 class="card-title text-secondary mb-2">過去の目標一覧</h5>
+                            <ul class="list-group list-group-flush"></ul>
+                                {% for goal in goals %}
+                                <li class="list-group-item d-flex justify-content-between align-items-center py-3"></li>
+                                    <span class="fw-bold fs-5">{{ goal.title }}</span>
+                                    <div class="btn-group" role="group">
+                                        <form action="/goals" method="POST" class="d-inline me-1">
+                                            <input type="hidden" name="goal_id" value="{{ goal.id }}">
+                                            <button type="submit" class="btn btn-outline-success btn-sm ms-2">切り替え</button>
+                                        </form>
+                                        <form action="/{{ goal.id }}/delete_goal" method="POST" class="d-inline">
+                                            <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('本当に削除しますか？')">削除</button>
+                                        </form>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                    </div>
+                </div>
+
+                <div class="text-start">
+                    <a href="/admin" class="btn btn-secondary">戻る</a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
