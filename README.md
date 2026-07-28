@@ -54,7 +54,8 @@ SQLAlchemyを用いて、各目標に対応するYWTを管理できるデータ�
 
 
 ##  操作動画
-https://github.com/user-attachments/assets/79bb4a6a-2c3a-40b5-9ee0-dbadb88b23bb
+https://github.com/user-attachments/assets/c4e73568-dcc9-4d02-b1e5-aae48daac501
+
 
 ##  今後の展望
 - AIによる週間・月間の学習レポート作成機能
