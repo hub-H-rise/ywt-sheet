@@ -61,7 +61,7 @@ https://github.com/user-attachments/assets/c4e73568-dcc9-4d02-b1e5-aae48daac501
 - AIによる週間・月間の学習レポート作成機能
 - タグ機能
 YWTの中でも分類ができるようにする
-- ラズパイで自宅サーバーをつくり個人開発と紐づけする
+- ログイン機能を追加する
 
 
 
