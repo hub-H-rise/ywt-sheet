@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}週間学習レポート{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">📊 AI週間学習レポート</h2>
+
+    <div class="alert alert-info shadow-sm">
+        <strong>現在の目標：</strong> 
+        {% if current_goal %}
+            <span class="fs-5 text-primary">{{ current_goal.title }}</span>
+        {% else %}
+            <span class="text-muted">設定されていません</span>
+        {% endif %}
+    </div>
+
+    <div class="card shadow-sm mb-4 border-success">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0">🤖 Geminiからの今週のまとめ・アドバイス</h5>
+        </div>
+        <div class="card-body">
+            <div class="ai-report-content">
+                {{ ai_report | safe}}
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-secondary text-white">
+            <h5 class="mb-0">📝 参照した直近1週間のYWT記録（{{ recent_posts|length }}件）</h5>
+        </div>
+        <div class="card-body">
+            {% if recent_posts %}
+                <ul class="list-group list-group-flush">
+                    {% for post in recent_posts %}
+                        <li class="list-group-item">
+                            <small class="text-muted">{{ post.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                            <div><strong>Y:</strong> {{ post.done }}</div>
+                            <div><strong>W:</strong> {{ post.learned }}</div>
+                            <div><strong>T:</strong> {{ post.next_action }}</div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-muted mb-0">直近1週間分の活動記録はありません。</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <a href="/admin" class="btn btn-secondary">管理画面に戻る</a>
+</div>
+{% endblock %}

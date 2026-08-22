@@ -10,20 +10,21 @@
                             <h3 class="card-title text-primary">現在の目標</h3>
                             {% if current_goal %}
                                 <h3>{{ current_goal.title }}</h3>
-                                <a href="/goals" class="btn btn-outline-primary mb-3 d-inline-flex">目標を切り替える・新規作成</a>
+                                <a href="/goals" class="btn btn-outline-primary mb-3 d-inline-flex text-nowrap">目標の切り替え・新規作成</a>
                             {% else %}
                                 <h2>目標が設定されていません</h2>
-                                <a href="/goals" class="btn btn-outline-primary mb-3 d-inline-flex">目標を設定する</a>
+                                <a href="/goals" class="btn btn-outline-primary mb-3 d-inline-flex text-nowrap">目標を設定する</a>
                             {% endif %}
-                            <a href="/create" class="btn btn-outline-success mb-3 d-inline-flex">やったことを記録する</a>
+                            <a href="/create" class="btn btn-outline-success mb-3 d-inline-flex text-nowrap">やったことを記録する</a>
+                            <a href="/weekly_report" class="btn btn-outline-secondary mb-3 d-inline-flex text-nowrap">✨AI週間レポートを見る✨</a>
 
-                            <h2 class="mb-3">活動記録一覧</h2>
-                                
+                            <h5 class="mb-3">活動記録一覧</h5>
+
                             {% for post in posts %}
                             <div class="card mb-3 shadow-sm">
                                 <div class="card-body">
                                     <h6 class="card-subtitle text-muted mb-2">
-                                        日付: {{ post.created_at.strftime('%Y-%m-%d') }}
+                                        日付: {{ post.created_at.strftime('%Y-%m-%d %H:%M:%S') }}
                                     </h6>
                                     <p class="mb-1"><strong>やったこと（Y）：</strong>{{ post.done }}</p>
                                     <p class="mb-1"><strong>わかったこと（W）：</strong>{{ post.learned }}</p>
