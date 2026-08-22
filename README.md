@@ -62,7 +62,9 @@ GeminiAPIを用いて、プロンプトの出力結果を保存し、HTML側で�
 
 
 ##  操作動画
-https://github.com/user-attachments/assets/c4e73568-dcc9-4d02-b1e5-aae48daac501
+https://github.com/user-attachments/assets/d20d31d5-78dc-4d12-adff-9fb44b5e6763
+
+
 
 
 ##  今後の展望
